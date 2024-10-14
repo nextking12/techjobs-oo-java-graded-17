@@ -32,21 +32,48 @@ public class Job {
         //this.id = Job.nextId;
     }
 
+    @Override
+    public String toString() {
+
+        if (name.isEmpty()) {
+            name = "Data not available";
+        } else if(employer.getValue().isEmpty()){
+            employer.setValue("Data not available");
+        } else if(location.getValue().isEmpty()) {
+            employer.setValue("Data not available");
+        } else if(positionType.getValue().isEmpty()) {
+            employer.setValue("Data not available");
+        } else if(coreCompetency.getValue().isEmpty()) {
+            employer.setValue("Data not available");
+        }
+        String newDisplay = System.lineSeparator() +
+                "ID: " + id + System.lineSeparator() +
+                "Name: " + name + System.lineSeparator() +
+                "Employer: " + employer + System.lineSeparator() +
+                "Location: " + location + System.lineSeparator() +
+                "Position Type: " + positionType + System.lineSeparator() +
+                "Core Competency: " + coreCompetency +
+                System.lineSeparator();
+        return newDisplay;
+    }
+
+
+
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Job job = (Job) o;
-        return id == job.id;
-    }
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Job job = (Job) o;
+            return id == job.id;
+        }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
+        @Override
+        public int hashCode() {
+            return Objects.hashCode(id);
+        }
 
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
@@ -70,7 +97,7 @@ public class Job {
         return employer;
     }
 
-    public void setEmployer(Employer employer) {
+    public void setEmployer() {
         this.employer = employer;
     }
 
@@ -97,4 +124,7 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
 }
+
+
