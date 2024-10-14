@@ -37,14 +37,14 @@ public class Job {
 
         if (name.isEmpty()) {
             name = "Data not available";
-        } else if(employer.getValue().isEmpty()){
+        } if(employer.getValue().isEmpty()){
             employer.setValue("Data not available");
-        } else if(location.getValue().isEmpty()) {
-            employer.setValue("Data not available");
-        } else if(positionType.getValue().isEmpty()) {
-            employer.setValue("Data not available");
-        } else if(coreCompetency.getValue().isEmpty()) {
-            employer.setValue("Data not available");
+        } if(location.getValue().isEmpty()) {
+            location.setValue("Data not available");
+        } if(positionType.getValue().isEmpty()) {
+            positionType.setValue("Data not available");
+        }  if(coreCompetency.getValue().isEmpty()) {
+            coreCompetency.setValue("Data not available");
         }
         String newDisplay = System.lineSeparator() +
                 "ID: " + id + System.lineSeparator() +
@@ -97,8 +97,8 @@ public class Job {
         return employer;
     }
 
-    public void setEmployer() {
-        this.employer = employer;
+    public void setEmployer(Employer employer) {
+       this.employer = employer;
     }
 
     public Location getLocation() {

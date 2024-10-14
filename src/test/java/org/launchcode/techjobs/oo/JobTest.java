@@ -71,14 +71,21 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job newJob = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job newJob = new Job("", new Employer(""), new Location("Desert"), new PositionType("Reserved"), new CoreCompetency("Persistence"));
 
-        if (newJob.getEmployer().getValue().isEmpty()) {
-            newJob.getEmployer().setValue("Data not available");
-        }
-        assertEquals(newJob.getEmployer().getValue(), "Data not available");
 
+        String expectedString = System.lineSeparator() +
+                "ID: " + newJob.getId() + System.lineSeparator() +
+                "Name: Data not available" + System.lineSeparator() +
+                "Employer: Data not available" + System.lineSeparator() +
+                "Location: Desert" + System.lineSeparator() +
+                "Position Type: Reserved" + System.lineSeparator() +
+                "Core Competency: Persistence" +
+                System.lineSeparator();
+
+        assertEquals(expectedString, newJob.toString());
     }
+
 }
 
 
